@@ -1,27 +1,35 @@
+#+TITLE: Calculator
+#+DESCRIPTION: An iterative calculator program I'm working on
+
+
+#+begin_src python
+
 #!/usr/bin/env python3
-#
-# Here I'm going to try to create a basic calculator and progressively iterate on it to make it more and more powerful
 
-# Solves a user defined arithmetic math problem
+#+end_src
 
-# Asks the user to input the problem
+#+begin_src python
+
 Operation = input("Enter your operation of choice:")
+#+end_src
 
-# Slices operation into an array with each digit and operation separate and in order
+#+begin_src python
+
 eqarray = list(Operation)
+# print(f"array length is:{len(eqarray)}")
+#+end_src
 
-# variable initial definition
+#+begin_src python
+
 arraypos = 0
 workvariable = ""
 var1 = ""
 var2 = ""
+#+end_src
 
-# Debug for len(eqarray)
-# print(f"array length is:{len(eqarray)}")
+#+begin_src python
 
-# While loop will go through each part of eqarray, creating the necessary variables
 while arraypos < len(eqarray):
-   # This if loop will find numbers in the user input and append them to the current working variable
    if arraypos == 0:
        workvariable = eqarray[arraypos]
        arraypos = arraypos + 1
@@ -53,8 +61,10 @@ while arraypos < len(eqarray):
          #  print(f"operator 1 set to {op1}")
 else:
    var2 = float(workvariable)
+#+end_src
 
-# Defining dictionary with all possible operations
+#+begin_src python
+
 opdict = {
    "+": lambda var1, var2: var1 + var2,
    "-": lambda var1, var2: var1 - var2,
@@ -62,7 +72,10 @@ opdict = {
    "/": lambda var1, var2: var1 / var2,
    "%": lambda var1, var2: var1 % var2
 }
+#+end_src
 
-# Printing original equation followed by solution
+#+begin_src python
+
 if op1 in opdict:
    print(f"{Operation} = {opdict[op1](var1, var2)}")
+#+end_src
